@@ -31,9 +31,9 @@ class bitlist:
 
   def __setitem__(self, index, value):
     if value == 0:
-      self.bits &= ~(1 << index)
+      self.bits &= ~(1 << (len(self) - index - 1))
     else:
-      self.bits |= (1 << index)
+      self.bits |= (1 << (len(self) - index - 1))
 
   def __str__(self):
-    return bin(self.bits)[2:].zfill(self.length)
+    return bin(self.bits)[2:].zfill(len(self))
